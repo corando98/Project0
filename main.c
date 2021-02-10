@@ -24,6 +24,7 @@ Expected output:
 
 
 //This is a test for Github
+//second test
 
 #define _GNU_SOURCE
 #include <stdio.h>
