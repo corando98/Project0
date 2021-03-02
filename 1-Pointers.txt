@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 
 Why is the above code incorrect (i.e., likely to crash)?
 
+Answer: 'argv[0]' is copied to 'temp' which has not been initialized, therefore will crash at run time.
 
 2) Consider the following C program.
 #include <string.h>
@@ -25,6 +26,8 @@ int main(int argc, char *argv[])
 A buffer overflow occurs when the program name is 9 characters long
 (e.g., "12345.exe"). Why?
 
+Answer: We copy the 9 chars at array temp, the null character of the string is copied into the 10th position causing a bufferoverflow. 
+
 
 3) Consider the following C program.
 #include <string.h>
@@ -37,6 +40,8 @@ int main(int argc, char *argv[])
 
 Why does this program crash?
 
+Answer: The program crashes when overwriting buffer which is a constant. 
+
 
 4) Consider the following C snippet.
 void myfunc()
@@ -47,6 +52,8 @@ void myfunc()
 }
 
 Is this correct?  What's a simpler expression for &b[0]?
+
+Answer: No, string "World" is being copied with null into array b. &b[0] can also be written as char *buffer =b;
 
 
 5) Consider the following C program.
@@ -59,6 +66,8 @@ int main(int argc, char* argv[])
 
 If this code is executed using the following line, what will be the output?
 > program1 -n5 abc
+
+Answer: 5abc
 
 
 6) Consider the following C program.
@@ -77,4 +86,6 @@ int main(int argc, char *argv[])
 }
 
 What's wrong with this?
+
+Answer: The return in myfunc does not exist, therefore 's' will hold a location which does not exist. 
 
