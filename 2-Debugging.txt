@@ -5,19 +5,40 @@ Understanding the code
 
   1) Explain why this program uses the exclamation operator with the
      strcmp() function.
+	
+	The program uses the '!' Operators to negate or invert the value, ie. strcmp("TEST","TEST") 			
+	returns true, where the !strcmp("TEST","TEST") returns false. 
 
   2) Explain why the 'LENGTH' macro returns the length of an array.
      Would it work with a pointer to a dynamically allocated array? (Hint:
      understand sizeof).
+	
+	The 'LENGHT' macro is created to supplement 'sizeof(var) / sizeof(*variable)'
+	sizeof(var) gives us the memory allocated for an array
+	where sizeof(*var) gives us the memory for the first element.
+	When the size of the first element is divided by the total size of array we can determine the 		
+	total number of element within an array. 
+
+	A dynamically array would not work, because it is set dynamically in memory and can change. 
 
 Bug hunting
 
   3) Explain and fix the logical flow bug within the switch statement.
      (What happens when the -h option is used?)
 
+     When the argument '-h' is passed the printhelp function is executed and the program continues 
+      resulting in printing follow up messages from the program. 
+      Adding EXIT_SUCCESS before the break closes the program right after the help dialog has been printed
+      
+
   4) Explain and fix the argument parsing error. (Why is entrycount never
      zero?)
 
+     Initializing entryCount to -1 and incrementing its value inside the while loop.  
+
   5) Fix print_result() to print results correctly and in the same order
      as the words were specified on the command line.  Explain your solution.
+
+      Changing the greater than to a greater or equal to operator to include the offset in the 
+      entry_count. By doing this we include the 'lost' argument.
 
